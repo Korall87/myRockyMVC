@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">myRockyMVC</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">myR</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -45,24 +45,25 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
                             </div>
-                        </li>
+                            </li>
                         }
                         <li>
                             @if (HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) != null)
                             {
                                 <a asp-action="Index" asp-controller="Cart" class="nav-link">
-                                    @{ 
-                                        var count = HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart).Count;
+                                   @{ 
+                                       var count = HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart).Count;
                                     }
                                     <i class="fas fa-shopping-cart"></i> &nbsp; (@count)
                                 </a>
-                                        }
-                                        else
-                                        {
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-shopping-cart"></i> &nbsp; (0)
-                        </a>
-                                        }
+                            }
+                            else
+                            {
+                                 <a href="#" class="nav-link">
+                                 <i class="fas fa-shopping-cart"></i> &nbsp; (0)
+                                 </a>
+                            }
+
                         </li>
                     </ul>
                 </div>

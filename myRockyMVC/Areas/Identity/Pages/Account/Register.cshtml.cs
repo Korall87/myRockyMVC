@@ -65,12 +65,16 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
+            [Display(Name = "Full Name")]
             public string FullName { get; set; }
+
+            [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            // Создание роли админа и пользователя
             if(!await _roleManager.RoleExistsAsync(WC.AdminRole))
             {
                 await _roleManager.CreateAsync(new IdentityRole(WC.AdminRole));
@@ -87,8 +91,8 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, PhoneNumber=Input.PhoneNumber,
-                FullName = Input.FullName};
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email,
+                                                 PhoneNumber=Input.PhoneNumber, FullName = Input.FullName };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -106,7 +110,9 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
+
+                    // Отправка письма 
+                    var callbackUrl = Url.Page( 
                         "/Account/ConfirmEmail",
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
@@ -137,8 +143,6 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return Page();
         }
     }

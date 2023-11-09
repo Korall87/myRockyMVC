@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace myRockyMVC.Utility
 {
+    // берем из appsettings 
     public class MailJetSettings
     {
         public string ApiKey { get; set; }

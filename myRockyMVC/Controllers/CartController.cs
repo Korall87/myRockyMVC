@@ -97,10 +97,11 @@ namespace myRockyMVC.Controllers
 
             var subject = "New Inquiry";
             string HtmlBody = "";
-            using (StreamReader sr = System.IO.File.OpenText(PathToTemplate))
-            {
-                HtmlBody = sr.ReadToEnd();
-            }
+            // чтение шаблона и сохранение в Body
+            //using (StreamReader sr = System.IO.File.OpenText(PathToTemplate))
+            //{
+            //    HtmlBody = sr.ReadToEnd();
+            //}
             //Name: { 0}
             //Email: { 1}
             //Phone: { 2}
