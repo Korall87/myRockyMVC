@@ -10,7 +10,7 @@ using myRockyMVC.Models;
 namespace myRockyMVC.Controllers
 {
 
-   // [Authorize(Roles = WC.AdminRole)]
+    [Authorize(Roles = WC.AdminRole)]
     public class ApplicationTypeController : Controller
     {
         private readonly ApplicationDbContext _db;

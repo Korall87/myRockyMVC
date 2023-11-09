@@ -14,7 +14,7 @@ using myRockyMVC.Models.ViewModels;
 
 namespace myRockyMVC.Controllers
 {
-    //[Authorize(Roles = WC.AdminRole)]
+    [Authorize(Roles = WC.AdminRole)]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _db;
