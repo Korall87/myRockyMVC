@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace myRockyMVC
+namespace mR_Utility
 {
     public static class WC
     {

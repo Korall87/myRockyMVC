@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace myRockyMVC.Migrations
+namespace mR_DataAccess.Migrations
 {
     public partial class addStartDatabase : Migration
     {

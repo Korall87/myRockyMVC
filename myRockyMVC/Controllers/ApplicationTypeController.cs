@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using myRockyMVC.Data;
-using myRockyMVC.Models;
+using mR_Models;
+using mR_Utility;
+using mR_DataAccess.Data;
 
 namespace myRockyMVC.Controllers
 {

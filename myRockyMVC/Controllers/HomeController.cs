@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using myRockyMVC.Data;
-using myRockyMVC.Models;
-using myRockyMVC.Models.ViewModels;
-using myRockyMVC.Utility;
+using mR_DataAccess.Data;
+using mR_Models;
+using mR_Models.ViewModels;
+using mR_Utility;
 
 namespace myRockyMVC.Controllers
 {

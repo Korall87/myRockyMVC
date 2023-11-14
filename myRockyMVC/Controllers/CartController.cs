@@ -10,10 +10,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using myRockyMVC.Data;
-using myRockyMVC.Models;
-using myRockyMVC.Models.ViewModels;
-using myRockyMVC.Utility;
+using mR_DataAccess.Data;
+using mR_Models;
+using mR_Models.ViewModels;
+using mR_Utility;
 
 namespace myRockyMVC.Controllers
 {

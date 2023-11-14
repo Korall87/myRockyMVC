@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using myRockyMVC.Models;
+using mR_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace myRockyMVC.Data
+namespace mR_DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

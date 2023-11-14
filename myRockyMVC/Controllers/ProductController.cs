@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using myRockyMVC.Data;
-using myRockyMVC.Models;
-using myRockyMVC.Models.ViewModels;
+using mR_DataAccess.Data;
+using mR_Models;
+using mR_Models.ViewModels;
+using mR_Utility;
 
 namespace myRockyMVC.Controllers
 {

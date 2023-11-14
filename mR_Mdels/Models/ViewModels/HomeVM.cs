@@ -4,7 +4,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace myRockyMVC.Models.ViewModels
+namespace mR_Models.ViewModels
 {
     public class HomeVM
     {

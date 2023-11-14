@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using myRockyMVC.Data;
+using mR_DataAccess.Data;
 
-namespace myRockyMVC.Migrations
+namespace mR_DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231107115102_addStartDatabase")]
-    partial class addStartDatabase
+    [Migration("20231114110818_test2")]
+    partial class test2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,7 +223,7 @@ namespace myRockyMVC.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("myRockyMVC.Models.ApplicationType", b =>
+            modelBuilder.Entity("mR_Models.ApplicationType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -239,7 +239,7 @@ namespace myRockyMVC.Migrations
                     b.ToTable("ApplicationType");
                 });
 
-            modelBuilder.Entity("myRockyMVC.Models.Category", b =>
+            modelBuilder.Entity("mR_Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -258,7 +258,7 @@ namespace myRockyMVC.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("myRockyMVC.Models.Product", b =>
+            modelBuilder.Entity("mR_Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -296,7 +296,7 @@ namespace myRockyMVC.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("myRockyMVC.Models.ApplicationUser", b =>
+            modelBuilder.Entity("mR_Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -357,15 +357,15 @@ namespace myRockyMVC.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("myRockyMVC.Models.Product", b =>
+            modelBuilder.Entity("mR_Models.Product", b =>
                 {
-                    b.HasOne("myRockyMVC.Models.ApplicationType", "ApplicationType")
+                    b.HasOne("mR_Models.ApplicationType", "ApplicationType")
                         .WithMany()
                         .HasForeignKey("ApplicationTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("myRockyMVC.Models.Category", "Category")
+                    b.HasOne("mR_Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)

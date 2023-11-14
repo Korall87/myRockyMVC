@@ -33,4 +33,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\mR_DataAccess\mR_DataAccess.csproj" />
+    <ProjectReference Include="..\mR_Mdels\mR_Models.csproj" />
+    <ProjectReference Include="..\mR_Utility\mR_Utility.csproj" />
+  </ItemGroup>
+
 </Project>
