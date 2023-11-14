@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using mR_DataAccess.Repository.IRepository;
+using mR_DataAccess.Repository;
 
 namespace mymyRockyMVCMVC
 {
@@ -44,6 +46,10 @@ namespace mymyRockyMVCMVC
                 Options.Cookie.HttpOnly = true;
                 Options.Cookie.IsEssential = true;
             });
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IApplicationTypeRepository, ApplicationTypeRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
             services.AddControllersWithViews();
         }
 
