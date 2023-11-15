@@ -155,9 +155,9 @@ namespace myRockyMVC.Controllers
                     InquiryHeaderId = inquiryHeader.Id,
                     ProductId = prod.Id,
                 };
-                _inqDRepo.Add(inquiryDetail);
-                _inqDRepo.Save();
+                _inqDRepo.Add(inquiryDetail);               
             }
+            _inqDRepo.Save();
 
             return RedirectToAction(nameof(InquiryConfirmation));
         }
