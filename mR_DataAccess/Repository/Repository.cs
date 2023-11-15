@@ -76,7 +76,7 @@ namespace mR_DataAccess.Repository
                 query = query.AsNoTracking();
             }
             return query.ToList();
-        }
+        } 
 
         public void Remove(T entity)
         {

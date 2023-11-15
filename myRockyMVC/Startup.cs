@@ -51,6 +51,7 @@ namespace mymyRockyMVCMVC
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IInquiryDetailRepository, InquiryDetailRepository>();
             services.AddScoped<IInquiryHeaderRepository, InquiryHeaderRepository>();
+            services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
 
             services.AddControllersWithViews();
         }

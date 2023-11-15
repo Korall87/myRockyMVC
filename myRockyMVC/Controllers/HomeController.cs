@@ -31,7 +31,7 @@ namespace myRockyMVC.Controllers
         {
             HomeVM homeVM = new HomeVM()
             {          
-                Products = _prodRep.GetAll(includeProperties: "Category, ApplicationType"),
+                Products = _prodRep.GetAll(includeProperties: "Category,ApplicationType"),
                 Categories = _catRep.GetAll()
             };
             return View(homeVM);
@@ -50,7 +50,7 @@ namespace myRockyMVC.Controllers
 
             DetailsVM DetailsVM = new DetailsVM()
             {
-                Product = _prodRep.FirstOrDefault(u => u.Id == id, includeProperties: "Category, ApplicationType"),
+                Product = _prodRep.FirstOrDefault(u => u.Id == id, includeProperties: "Category,ApplicationType"),
                 ExistsInCart = false
             };
 
