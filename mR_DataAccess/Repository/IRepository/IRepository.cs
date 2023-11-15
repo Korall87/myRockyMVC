@@ -9,7 +9,7 @@ namespace mR_DataAccess.Repository.IRepository
 {
     public interface IRepository<T> where T : class
     {
-         T Find(int id);
+        T Find(int id);
 
         IEnumerable<T> GetAll(
             Expression<Func<T, bool>> filter = null,
