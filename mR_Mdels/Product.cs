@@ -6,6 +6,12 @@ namespace mR_Models
 {
     public class Product
     {
+        public Product()
+        {
+            TempSqFt = 1;
+        } 
+
+
         [Key]
         public int Id { get; set; }
 
@@ -26,5 +32,9 @@ namespace mR_Models
         public int ApplicationTypeId { get; set; }
         [ForeignKey("ApplicationTypeId")]
         public virtual ApplicationType ApplicationType { get; set; }
+
+        [NotMapped] //  исключить определенное свойство, чтобы для него не создавался столбец в таблице
+        [Range(1, 10)]
+        public int TempSqFt { get; set; }
     }
 }
