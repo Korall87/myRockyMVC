@@ -21,5 +21,8 @@ namespace mR_DataAccess.Data
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<InquiryHeader> InquiryHeader { get; set; }
         public DbSet<InquiryDetail> InquiryDetail { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+        public DbSet<OrderHeader> OrderHeader { get; set; }
+
     }
 }
