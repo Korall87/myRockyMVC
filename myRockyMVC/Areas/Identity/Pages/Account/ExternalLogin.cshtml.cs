@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using mR_Models;
 
 namespace myRockyMVC.Areas.Identity.Pages.Account
 {
@@ -51,6 +52,14 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+
+            [Required]
+            [Display(Name = "Full Name")]
+            public string FullName { get; set; }
+
+            [Required]
+            [Display(Name = "Phone Number")]
+            public string PhoneNumber { get; set; }
         }
 
         public IActionResult OnGetAsync()
@@ -101,7 +110,8 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
                 {
                     Input = new InputModel
                     {
-                        Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        Email = info.Principal.FindFirstValue(ClaimTypes.Email),
+                        FullName = info.Principal.FindFirstValue(ClaimTypes.Name)
                     };
                 }
                 return Page();
@@ -121,7 +131,7 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FullName = Input.FullName, PhoneNumber = Input.PhoneNumber};
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -129,6 +139,7 @@ namespace myRockyMVC.Areas.Identity.Pages.Account
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
+                        await _userManager.AddToRoleAsync(user, mR_Utility.WC.CustomerRole);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
                         var userId = await _userManager.GetUserIdAsync(user);
