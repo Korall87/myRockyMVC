@@ -34,7 +34,7 @@ namespace mR_Models
         public virtual ApplicationType ApplicationType { get; set; }
 
         [NotMapped] //  исключить определенное свойство, чтобы для него не создавался столбец в таблице
-        [Range(1, 10)]
+        [Range(1, 10, ErrorMessage = "Sqft must be greater than 0.")]
         public int TempSqFt { get; set; }
     }
 }

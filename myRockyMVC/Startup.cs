@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using mR_DataAccess.Repository.IRepository;
 using mR_DataAccess.Repository;
 using mR_Utility.BrainTree;
+using mR_DataAccess.Initializer;
 
 namespace mymyRockyMVCMVC
 {
@@ -57,6 +58,8 @@ namespace mymyRockyMVCMVC
             services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
             services.AddScoped<IOrderHeaderRepository, OrderHeaderRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+            services.AddScoped<IDbInitializer, DbInitializer>();
+
 
             //не работает просто обертка для прикола
             services.AddAuthentication().AddFacebook(Options =>
@@ -69,7 +72,7 @@ namespace mymyRockyMVCMVC
         }
 
         
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -86,6 +89,7 @@ namespace mymyRockyMVCMVC
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            dbInitializer.Initialize();
             app.UseSession();
             app.UseEndpoints(endpoints =>
             {
